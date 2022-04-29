@@ -1,0 +1,114 @@
+
+<html>
+	<head>
+		<title>Sistema de rastreo</title>
+	</head>
+	<body>
+	<div >	
+		<button class="boton-personalizado-4 btn3" target="_blank" ">Ubicacion actual</button>
+		<button class="boton-personalizado-4 btn2 "target="_blank">Ruta</button>
+		
+
+	</div>
+	
+	</body>
+
+</html>
+<style type="text/css">
+.boton-personalizado-4 {
+text-decoration:none;
+font-weight: 600;
+font-size: 20px;
+color:#333333;
+padding-top:15px;
+padding-bottom:15px;
+padding-left:40px;
+padding-right:40px;
+background-color:#FFD27D;
+border-color: #d8d8d8;
+border-width: 3px;
+border-style: solid;
+border-radius:35px;
+}
+.contenedor{
+	margin-top: 20px;
+	height: 100vh;
+	width: 100vw;
+	left:auto;
+	right: 100px;
+}
+.item-map{
+	height: 100%;
+	width: 100%;
+}
+</style>
+
+<script>
+
+	const body = document.body;
+	let state = true;
+
+	const crearHtml1 = () => {
+    const html = `
+	<div class="contenedor">
+		<iframe src="mapa.html" frameborder="0" class="item-map"></iframe>
+		
+	</div>
+    `;
+    const divC = document.createElement('section');
+    divC.innerHTML = html;
+
+    body.append(divC);
+	}
+
+	const eliminarHtml = (i) => {
+		const tabBody = document.querySelector('section');
+		
+		body.removeChild(tabBody);
+	}
+
+
+	const btnLimpiar = document.querySelector('.btn2');
+	btnLimpiar.addEventListener('click', (event) => {
+		
+	// divC
+	if(state){
+		crearHtml1();
+		state = false;
+	} else{
+		eliminarHtml(1);
+		state = true;
+	}
+	
+	});
+
+
+	const crearHtml2 = () => {
+    const html = `
+	<div class="contenedor">
+		<iframe src="pa.html" frameborder="0" class="item-map"></iframe>
+		
+	</div>
+    `;
+    const divC = document.createElement('section');
+    divC.innerHTML = html;
+
+    body.append(divC);
+	}
+
+
+	const btnLimpiar2 = document.querySelector('.btn3');
+	btnLimpiar2.addEventListener('click', (event) => {
+		
+	// divC
+	if(state){
+		crearHtml2();
+		state = false;
+	} else{
+		eliminarHtml(1);
+		state = true;
+	}
+	
+	});
+	
+</script>
